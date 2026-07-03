@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abask Travel — Silk Road Tours</title>
+<meta name="description" content="Small-group and private journeys through Uzbekistan, Kyrgyzstan, Tajikistan, Kazakhstan and Turkmenistan, guided by the people who live along the route.">
+<link rel="icon" href="brand_assets/image_2026-07-01_17-15-48.png">
+<script>document.documentElement.classList.add('js');</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          sand: { DEFAULT: '#F1E4C8', dark: '#E4D3AC' },
+          cream: '#FBF3E1',
+          ink: { DEFAULT: '#2A1B12', light: '#4A3524' },
+          teal: { DEFAULT: '#0D6E68', dark: '#0A4F4B', deep: '#083836', light: '#4FA69E' },
+          gold: { DEFAULT: '#DB9430', dark: '#B5701E', light: '#F0C169' },
+          rust: { DEFAULT: '#A8451F', dark: '#823419' },
+        },
+        fontFamily: {
+          display: ['"Hanken Grotesk"', 'ui-sans-serif', 'sans-serif'],
+          body: ['"Hanken Grotesk"', 'ui-sans-serif', 'sans-serif'],
+          mono: ['"IBM Plex Mono"', 'ui-monospace', 'monospace'],
+        },
+        letterSpacing: {
+          tightest: '-0.04em',
+          widemono: '0.14em',
+        },
+      }
+    }
+  }
+</script>
+
+<style>
+  :root {
+    --shadow-soft: 0 1px 2px rgba(42,27,18,.06), 0 12px 28px -14px rgba(42,27,18,.28), 0 4px 10px -6px rgba(13,110,104,.18);
+    --shadow-lift: 0 4px 8px rgba(42,27,18,.08), 0 24px 48px -16px rgba(42,27,18,.32), 0 8px 16px -8px rgba(13,110,104,.22);
+    --shadow-gold: 0 8px 20px -8px rgba(219,148,48,.55), 0 2px 6px rgba(42,27,18,.15);
+  }
+
+  * { -webkit-tap-highlight-color: transparent; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+
+  body {
+    background: #FBF3E1;
+    color: #2A1B12;
+    font-family: 'Hanken Grotesk', ui-sans-serif, sans-serif;
+    line-height: 1.6;
+  }
+
+  ::selection { background: #DB9430; color: #2A1B12; }
+  :focus-visible { outline: 2.5px solid #0D6E68; outline-offset: 3px; border-radius: 2px; }
+
+  .shadow-soft { box-shadow: var(--shadow-soft); }
+  .shadow-lift { box-shadow: var(--shadow-lift); }
+  .shadow-gold { box-shadow: var(--shadow-gold); }
+
+  .star-field {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%23F0C169' stroke-width='1' opacity='0.5'%3E%3Crect x='20' y='20' width='32' height='32'/%3E%3Crect x='20' y='20' width='32' height='32' transform='rotate(45 36 36)'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 72px 72px;
+  }
+  .star-field-dark {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cg fill='none' stroke='%23DB9430' stroke-width='1' opacity='0.35'%3E%3Crect x='20' y='20' width='32' height='32'/%3E%3Crect x='20' y='20' width='32' height='32' transform='rotate(45 36 36)'/%3E%3C/g%3E%3C/svg%3E");
+    background-size: 72px 72px;
+  }
+
+  .grain::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.05;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+
+  @keyframes fade-up {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .js [data-reveal] { opacity: 0; }
+  [data-reveal].in-view { animation: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+  [data-reveal="1"].in-view { animation-delay: 0.05s; }
+  [data-reveal="2"].in-view { animation-delay: 0.15s; }
+  [data-reveal="3"].in-view { animation-delay: 0.25s; }
+  [data-reveal="4"].in-view { animation-delay: 0.35s; }
+
+  .nav-shell { transition: background-color 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s cubic-bezier(0.16,1,0.3,1), padding 0.4s cubic-bezier(0.16,1,0.3,1); }
+
+  .btn-primary { transition: transform 0.25s cubic-bezier(0.16,1,0.3,1), box-shadow 0.25s cubic-bezier(0.16,1,0.3,1); }
+  .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 28px -10px rgba(219,148,48,.6); }
+  .btn-primary:active { transform: translateY(0); box-shadow: none; }
+
+  .btn-ghost { transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, transform 0.25s cubic-bezier(0.16,1,0.3,1); }
+  .btn-ghost:hover { transform: translateY(-2px); }
+
+  .icon-btn { transition: background-color 0.2s ease, transform 0.2s cubic-bezier(0.16,1,0.3,1); }
+  .icon-btn:hover { transform: translateY(-1px); }
+  .icon-btn:active { transform: translateY(0); }
+
+  .card-tour { transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s cubic-bezier(0.16,1,0.3,1); }
+  .card-tour:hover { transform: translateY(-6px); }
+  .card-tour:hover .card-scene { transform: scale(1.06); }
+  .card-scene { transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+
+  .style-tile { transition: transform 0.4s cubic-bezier(0.16,1,0.3,1); }
+  .style-tile:hover { transform: translateY(-4px); }
+  .style-tile:hover .style-img { transform: scale(1.08); }
+  .style-img { transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+
+  .dest-tile { transition: transform 0.35s cubic-bezier(0.16,1,0.3,1); }
+  .dest-tile:hover { transform: translateY(-4px); }
+  .dest-tile:hover .dest-img { transform: scale(1.1); }
+  .dest-img { transition: transform 0.6s cubic-bezier(0.16,1,0.3,1); }
+
+  .fav-btn { transition: transform 0.2s cubic-bezier(0.16,1,0.3,1), background-color 0.2s ease; }
+  .fav-btn:hover { transform: scale(1.1); }
+  .fav-btn[aria-pressed="true"] svg { fill: #A8451F; stroke: #A8451F; }
+
+  .stamp { transition: transform 0.35s cubic-bezier(0.16,1,0.3,1); }
+  .stamp:hover { transform: rotate(0deg) translateY(-4px) !important; }
+
+  .link-underline { position: relative; }
+  .link-underline::after {
+    content: ''; position: absolute; left: 0; right: 100%; bottom: -3px; height: 1.5px;
+    background: currentColor; transition: right 0.3s cubic-bezier(0.16,1,0.3,1);
+  }
+  .link-underline:hover::after { right: 0; }
+
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; scroll-snap-type: x mandatory; }
+  .snap-item { scroll-snap-align: start; }
+
+  .carousel-btn { transition: background-color 0.2s ease, transform 0.2s cubic-bezier(0.16,1,0.3,1), border-color 0.2s ease; }
+  .carousel-btn:hover { transform: translateY(-2px); }
+
+  input, textarea { font-family: 'Hanken Grotesk', sans-serif; }
+  input::placeholder, textarea::placeholder { color: #4A352499; }
+
+  .mono-tag { font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.14em; font-variant-numeric: tabular-nums; }
+  .clock-digit { font-family: 'IBM Plex Mono', monospace; font-variant-numeric: tabular-nums; }
+
+  #searchPanel { transition: opacity 0.25s cubic-bezier(0.16,1,0.3,1), transform 0.25s cubic-bezier(0.16,1,0.3,1); }
+  #searchPanel.hidden-panel { opacity: 0; transform: translateY(-8px); pointer-events: none; }
+
+  .check-bullet svg { flex-shrink: 0; }
+</style>
+</head>
+
+<body class="antialiased">
+
+<!-- ============ PROMO BAR ============ -->
+<div id="promoBar" class="relative z-[60] text-cream text-center text-[12.5px] md:text-[13px] font-medium py-2.5 px-10" style="background: linear-gradient(90deg, #823419 0%, #A8451F 50%, #DB9430 100%);">
+  <span>Offer extended — <strong class="font-bold">10% off all tours</strong> with code <span class="mono-tag font-semibold">SILKROAD10</span></span>
+  <button id="promoClose" aria-label="Dismiss offer banner" class="icon-btn absolute right-3 top-1/2 -translate-y-1/2 w-6 h-6 rounded-full flex items-center justify-center hover:bg-cream/15">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="5" y1="5" x2="19" y2="19"/><line x1="19" y1="5" x2="5" y2="19"/></svg>
+  </button>
+</div>
+
+<!-- ============ NAV ============ -->
+<header id="siteNav" class="nav-shell sticky top-0 inset-x-0 z-50 py-4 bg-cream/95 shadow-soft">
+  <div class="max-w-7xl mx-auto px-5 md:px-8 flex items-center justify-between gap-4">
+    <a href="#top" class="flex items-center gap-3 shrink-0">
+      <img src="brand_assets/image_2026-07-01_17-15-48.png" alt="Abask Travel" class="w-11 h-11 rounded-full shadow-soft">
+      <span class="font-display font-extrabold text-lg tracking-tightest text-ink hidden sm:inline">Abask&nbsp;Travel</span>
+    </a>
+
+    <nav class="hidden md:flex items-center gap-8 text-[14px] font-semibold" id="navLinks">
+      <a href="#sale" class="link-underline">Sale</a>
+      <a href="#styles" class="link-underline">Trip Styles</a>
+      <a href="#multi" class="link-underline">Multi-Country</a>
+      <a href="#destinations" class="link-underline">Destinations</a>
+      <a href="#reviews" class="link-underline">Reviews</a>
+    </nav>
+
+    <div class="flex items-center gap-1.5 md:gap-3">
+      <button id="searchBtn" aria-expanded="false" aria-controls="searchPanel" aria-label="Search tours" class="icon-btn w-10 h-10 rounded-full flex items-center justify-center text-ink hover:bg-sand">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      </button>
+      <button id="wishlistBtn" aria-pressed="false" aria-label="Saved tours" class="fav-btn w-10 h-10 rounded-full flex items-center justify-center text-ink hover:bg-sand relative">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7.5-4.6-10-9.2C.5 8.4 2.3 5 6 5c2 0 3.5 1.1 4.5 2.6C11.5 6.1 13 5 15 5c3.7 0 5.5 3.4 4 6.8-2.5 4.6-10 9.2-10 9.2z"/></svg>
+        <span id="wishlistCount" class="hidden absolute -top-0.5 -right-0.5 w-4 h-4 rounded-full bg-rust text-cream text-[9px] font-bold items-center justify-center">1</span>
+      </button>
+      <a href="#plan" class="hidden md:inline-flex items-center gap-2 bg-ink text-cream text-[13.5px] font-semibold px-5 py-2.5 rounded-full btn-primary shadow-soft">
+        Get a Quote
+      </a>
+      <button id="menuBtn" class="md:hidden text-ink w-10 h-10 flex items-center justify-center" aria-label="Open menu" aria-expanded="false" aria-controls="mobileMenu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="7" x2="21" y2="7"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="17" x2="21" y2="17"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Search panel -->
+  <div id="searchPanel" class="hidden-panel absolute left-0 right-0 top-full bg-cream shadow-lift border-t border-ink/10 py-5">
+    <div class="max-w-3xl mx-auto px-5 flex items-center gap-3">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" class="text-ink/50 shrink-0" stroke-width="2"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+      <input type="text" placeholder="Search destinations, journeys, trip styles…" class="w-full bg-transparent text-[15px] text-ink placeholder:text-ink/40 focus:outline-none" aria-label="Search tours">
+    </div>
+  </div>
+
+  <div id="mobileMenu" class="md:hidden hidden flex-col gap-1 px-6 pt-4 pb-2 bg-cream mx-4 mt-3 rounded-2xl shadow-lift text-ink font-semibold">
+    <a href="#sale" class="py-2.5 border-b border-ink/10">Sale</a>
+    <a href="#styles" class="py-2.5 border-b border-ink/10">Trip Styles</a>
+    <a href="#multi" class="py-2.5 border-b border-ink/10">Multi-Country</a>
+    <a href="#destinations" class="py-2.5 border-b border-ink/10">Destinations</a>
+    <a href="#reviews" class="py-2.5 border-b border-ink/10">Reviews</a>
+    <a href="#plan" class="mt-3 mb-1 text-center bg-ink text-cream py-2.5 rounded-full font-semibold">Get a Quote</a>
+  </div>
+</header>
+
+<!-- ============ HERO ============ -->
+<section id="top" class="bg-cream pt-8 md:pt-12 pb-16 md:pb-24">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <div class="relative rounded-[28px] md:rounded-[36px] overflow-hidden shadow-lift" style="aspect-ratio: 16/10;">
+      <img src="https://placehold.co/1600x1000/0A4F4B/F1E4C8?text=Registan%2C+Samarkand" alt="The Registan at dawn, Samarkand" class="absolute inset-0 w-full h-full object-cover">
+      <div class="absolute inset-0" style="background: linear-gradient(180deg, rgba(8,56,54,.55) 0%, rgba(8,56,54,0) 30%, rgba(8,56,54,0) 55%, rgba(8,56,54,.75) 100%);"></div>
+
+      <!-- Ribbon: offer tag -->
+      <div class="absolute top-4 left-4 right-16 sm:right-auto md:top-7 md:left-7 flex items-center gap-2 bg-cream/95 rounded-full pl-1.5 pr-3 py-1.5 md:pl-2 md:pr-4 md:py-2 shadow-soft w-fit max-w-full">
+        <span class="w-6 h-6 md:w-7 md:h-7 rounded-full bg-rust flex items-center justify-center text-cream text-[10px] md:text-[11px] font-bold shrink-0">%</span>
+        <span class="text-[11px] md:text-[13px] font-semibold text-ink truncate">10% off — code SILKROAD10</span>
+      </div>
+
+      <!-- Video tag -->
+      <div class="absolute top-4 right-4 md:top-7 md:right-7 flex items-center gap-2 bg-ink/50 rounded-full pl-1.5 pr-1.5 sm:pr-4 py-1.5 md:py-2">
+        <span class="w-6 h-6 rounded-full bg-cream/90 flex items-center justify-center shrink-0">
+          <svg width="9" height="9" viewBox="0 0 24 24" fill="#2A1B12"><polygon points="6,4 20,12 6,20"/></svg>
+        </span>
+        <span class="hidden sm:inline text-[12px] font-semibold text-cream uppercase tracking-wide mono-tag">Caravan video</span>
+      </div>
+
+      <!-- Countdown card -->
+      <div class="absolute bottom-5 left-5 right-5 md:left-7 md:right-auto md:bottom-7 bg-cream/95 rounded-2xl px-5 py-4 shadow-soft flex items-center gap-4 md:gap-5">
+        <p class="text-[11px] md:text-[12px] font-semibold text-ink/70 uppercase tracking-wide leading-tight">Sale<br>ends in</p>
+        <div class="flex items-center gap-1.5 md:gap-2.5" id="heroCountdown" role="timer" aria-label="Time remaining in sale">
+          <div class="text-center"><span class="clock-digit block text-lg md:text-2xl font-bold text-ink" data-unit="days">05</span><span class="text-[8.5px] uppercase text-ink/50">days</span></div>
+          <span class="text-ink/30 font-bold pb-3">:</span>
+          <div class="text-center"><span class="clock-digit block text-lg md:text-2xl font-bold text-ink" data-unit="hours">00</span><span class="text-[8.5px] uppercase text-ink/50">hrs</span></div>
+          <span class="text-ink/30 font-bold pb-3">:</span>
+          <div class="text-center"><span class="clock-digit block text-lg md:text-2xl font-bold text-ink" data-unit="minutes">00</span><span class="text-[8.5px] uppercase text-ink/50">min</span></div>
+          <span class="text-ink/30 font-bold pb-3">:</span>
+          <div class="text-center"><span class="clock-digit block text-lg md:text-2xl font-bold text-ink" data-unit="seconds">00</span><span class="text-[8.5px] uppercase text-ink/50">sec</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="max-w-3xl mx-auto text-center mt-12 md:mt-16" data-reveal>
+      <h1 class="font-display font-extrabold text-[13vw] leading-[0.95] md:text-[4.4rem] tracking-tightest text-ink">Real travel.</h1>
+      <p class="mt-6 max-w-xl mx-auto text-[15.5px] md:text-base text-ink-light leading-relaxed">
+        Step into different cultures. Get your hand dirty. Our Abask crew have been travelling the Silk Road since 2014, and specialise in group adventures that make a difference.
+      </p>
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#sale" class="btn-primary bg-rust text-cream font-semibold text-sm px-8 py-3.5 rounded-full shadow-gold">Find my tour</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FLASH SALE ============ -->
+<section id="sale" class="relative overflow-hidden" style="background: radial-gradient(ellipse 120% 90% at 50% -10%, #F0C169 0%, #DB9430 35%, #B5701E 62%, #083836 100%);">
+  <div class="absolute inset-0 star-field-dark opacity-50"></div>
+  <div class="relative max-w-7xl mx-auto px-5 md:px-8 py-20 md:py-28">
+    <div class="max-w-xl mx-auto text-center mb-12 md:mb-14" data-reveal>
+      <p class="mono-tag text-[11px] text-cream/90 uppercase mb-4">Off-Season Sale Extended</p>
+      <h2 class="font-display font-extrabold text-4xl md:text-5xl tracking-tightest text-cream mb-4">Your adventure has been approved.</h2>
+      <p class="text-[15px] text-cream/90 leading-relaxed">10% off all tours, plus fee-free deposits, when you book before the clock runs out.</p>
+      <div class="mt-7 flex items-center justify-center gap-2 md:gap-3" id="saleCountdown" role="timer" aria-label="Time remaining in sale">
+        <div class="bg-ink/25 rounded-xl px-3 py-2 text-center min-w-[56px]"><span class="clock-digit block text-xl md:text-2xl font-bold text-cream" data-unit="days">05</span><span class="text-[8.5px] uppercase text-cream/70">days</span></div>
+        <div class="bg-ink/25 rounded-xl px-3 py-2 text-center min-w-[56px]"><span class="clock-digit block text-xl md:text-2xl font-bold text-cream" data-unit="hours">00</span><span class="text-[8.5px] uppercase text-cream/70">hrs</span></div>
+        <div class="bg-ink/25 rounded-xl px-3 py-2 text-center min-w-[56px]"><span class="clock-digit block text-xl md:text-2xl font-bold text-cream" data-unit="minutes">00</span><span class="text-[8.5px] uppercase text-cream/70">min</span></div>
+        <div class="bg-ink/25 rounded-xl px-3 py-2 text-center min-w-[56px]"><span class="clock-digit block text-xl md:text-2xl font-bold text-cream" data-unit="seconds">00</span><span class="text-[8.5px] uppercase text-cream/70">sec</span></div>
+      </div>
+      <a href="#plan" class="btn-primary inline-flex items-center gap-2 bg-ink text-cream font-semibold text-sm px-7 py-3.5 rounded-full shadow-lift mt-8">Shop the sale</a>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
+      <!-- Sale card 1 -->
+      <article class="card-tour group bg-cream rounded-3xl overflow-hidden shadow-soft relative" data-reveal>
+        <div class="relative h-52 overflow-hidden">
+          <img src="https://placehold.co/600x420/823419/FBF3E1?text=Silk+Cities" alt="Uzbekistan Adventure" class="card-scene w-full h-full object-cover">
+          <span class="absolute top-3 left-3 mono-tag text-[10px] uppercase bg-cream/95 text-rust px-2.5 py-1 rounded-full font-semibold">Heritage</span>
+          <button class="fav-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-cream/95 flex items-center justify-center" aria-pressed="false" aria-label="Save Uzbekistan Adventure">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2A1B12" stroke-width="2"><path d="M12 21s-7.5-4.6-10-9.2C.5 8.4 2.3 5 6 5c2 0 3.5 1.1 4.5 2.6C11.5 6.1 13 5 15 5c3.7 0 5.5 3.4 4 6.8-2.5 4.6-10 9.2-10 9.2z"/></svg>
+          </button>
+        </div>
+        <div class="p-6 md:p-7">
+          <p class="mono-tag text-[10.5px] uppercase text-ink/50 mb-2">Uzbekistan · 9 days</p>
+          <h3 class="font-display font-bold text-xl text-ink mb-2">Uzbekistan Adventure</h3>
+          <p class="text-[14px] text-ink-light leading-relaxed mb-4">Samarkand's Registan at sunrise, Bukhara's old town on foot, Khiva within its mud-brick walls.</p>
+          <div class="flex items-center justify-between">
+            <span class="mono-tag text-[13px] text-ink">from <span class="line-through text-ink/40">$2,450</span> <strong class="text-rust">$2,205</strong></span>
+            <a href="#plan" class="link-underline text-[13px] font-semibold text-teal">View →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sale card 2 -->
+      <article class="card-tour group bg-cream rounded-3xl overflow-hidden shadow-soft relative" data-reveal="1">
+        <div class="relative h-52 overflow-hidden">
+          <img src="https://placehold.co/600x420/0A4F4B/F1E4C8?text=Tian+Shan+Yurts" alt="Kyrgyzstan Intro" class="card-scene w-full h-full object-cover">
+          <span class="absolute top-3 left-3 mono-tag text-[10px] uppercase bg-cream/95 text-teal px-2.5 py-1 rounded-full font-semibold">Nomadic</span>
+          <button class="fav-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-cream/95 flex items-center justify-center" aria-pressed="false" aria-label="Save Kyrgyzstan Intro">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2A1B12" stroke-width="2"><path d="M12 21s-7.5-4.6-10-9.2C.5 8.4 2.3 5 6 5c2 0 3.5 1.1 4.5 2.6C11.5 6.1 13 5 15 5c3.7 0 5.5 3.4 4 6.8-2.5 4.6-10 9.2-10 9.2z"/></svg>
+          </button>
+        </div>
+        <div class="p-6 md:p-7">
+          <p class="mono-tag text-[10.5px] uppercase text-ink/50 mb-2">Kyrgyzstan · 7 days</p>
+          <h3 class="font-display font-bold text-xl text-ink mb-2">Kyrgyzstan Intro</h3>
+          <p class="text-[14px] text-ink-light leading-relaxed mb-4">Horseback to Song-Kul, falconry with eagle hunters, and nights under felt and stars.</p>
+          <div class="flex items-center justify-between">
+            <span class="mono-tag text-[13px] text-ink">from <span class="line-through text-ink/40">$1,890</span> <strong class="text-rust">$1,701</strong></span>
+            <a href="#plan" class="link-underline text-[13px] font-semibold text-teal">View →</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- Sale card 3 -->
+      <article class="card-tour group bg-cream rounded-3xl overflow-hidden shadow-soft relative sm:col-span-2 lg:col-span-1" data-reveal="2">
+        <div class="relative h-52 overflow-hidden">
+          <img src="https://placehold.co/600x420/B5701E/2A1B12?text=Pamir+Highway" alt="Tajikistan Intro" class="card-scene w-full h-full object-cover">
+          <span class="absolute top-3 left-3 mono-tag text-[10px] uppercase bg-cream/95 text-rust px-2.5 py-1 rounded-full font-semibold">Expedition</span>
+          <button class="fav-btn absolute top-3 right-3 w-8 h-8 rounded-full bg-cream/95 flex items-center justify-center" aria-pressed="false" aria-label="Save Tajikistan Intro">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#2A1B12" stroke-width="2"><path d="M12 21s-7.5-4.6-10-9.2C.5 8.4 2.3 5 6 5c2 0 3.5 1.1 4.5 2.6C11.5 6.1 13 5 15 5c3.7 0 5.5 3.4 4 6.8-2.5 4.6-10 9.2-10 9.2z"/></svg>
+          </button>
+        </div>
+        <div class="p-6 md:p-7">
+          <p class="mono-tag text-[10.5px] uppercase text-ink/50 mb-2">Tajikistan · 12 days</p>
+          <h3 class="font-display font-bold text-xl text-ink mb-2">Tajikistan Intro</h3>
+          <p class="text-[14px] text-ink-light leading-relaxed mb-4">The world's second-highest highway, Wakhan Valley villages, and skies with no light pollution.</p>
+          <div class="flex items-center justify-between">
+            <span class="mono-tag text-[13px] text-ink">from <span class="line-through text-ink/40">$3,100</span> <strong class="text-rust">$2,790</strong></span>
+            <a href="#plan" class="link-underline text-[13px] font-semibold text-teal">View →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============ POPULAR TRIP STYLES ============ -->
+<section id="styles" class="bg-cream py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <div class="max-w-xl mx-auto text-center mb-12 md:mb-14" data-reveal>
+      <p class="mono-tag text-[11px] text-rust uppercase mb-4">Popular Trip Styles</p>
+      <h2 class="font-display font-extrabold text-4xl md:text-5xl tracking-tightest text-ink mb-4">Looking for a style that matches your appetite?</h2>
+      <p class="text-[15px] text-ink-light leading-relaxed">Whether you crave heritage cities, nomadic pastures, high-altitude expeditions or off-grid remoteness — there's a route built around it.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-7">
+      <a href="#sale" class="style-tile group block" data-reveal>
+        <div class="relative rounded-2xl overflow-hidden shadow-soft" style="aspect-ratio:4/5;">
+          <img src="https://placehold.co/500x625/823419/FBF3E1?text=Heritage" alt="Heritage trips" class="style-img w-full h-full object-cover">
+          <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(42,27,18,0) 45%, rgba(42,27,18,.75) 100%);"></div>
+          <h3 class="absolute bottom-4 left-4 font-display font-bold text-xl text-cream">Heritage</h3>
+        </div>
+      </a>
+      <a href="#sale" class="style-tile group block" data-reveal="1">
+        <div class="relative rounded-2xl overflow-hidden shadow-soft" style="aspect-ratio:4/5;">
+          <img src="https://placehold.co/500x625/0A4F4B/F1E4C8?text=Nomadic" alt="Nomadic trips" class="style-img w-full h-full object-cover">
+          <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(8,56,54,0) 45%, rgba(8,56,54,.8) 100%);"></div>
+          <h3 class="absolute bottom-4 left-4 font-display font-bold text-xl text-cream">Nomadic</h3>
+        </div>
+      </a>
+      <a href="#sale" class="style-tile group block" data-reveal="2">
+        <div class="relative rounded-2xl overflow-hidden shadow-soft" style="aspect-ratio:4/5;">
+          <img src="https://placehold.co/500x625/B5701E/2A1B12?text=Expedition" alt="Expedition trips" class="style-img w-full h-full object-cover">
+          <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(42,27,18,0) 45%, rgba(42,27,18,.75) 100%);"></div>
+          <h3 class="absolute bottom-4 left-4 font-display font-bold text-xl text-cream">Expedition</h3>
+        </div>
+      </a>
+      <a href="#sale" class="style-tile group block" data-reveal="3">
+        <div class="relative rounded-2xl overflow-hidden shadow-soft" style="aspect-ratio:4/5;">
+          <img src="https://placehold.co/500x625/4A2E12/F0C169?text=Remote" alt="Remote trips" class="style-img w-full h-full object-cover">
+          <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(42,27,18,0) 45%, rgba(42,27,18,.75) 100%);"></div>
+          <h3 class="absolute bottom-4 left-4 font-display font-bold text-xl text-cream">Remote</h3>
+        </div>
+      </a>
+    </div>
+
+    <div class="text-center mt-11">
+      <a href="#sale" class="btn-primary inline-flex items-center gap-2 bg-rust text-cream font-semibold text-sm px-7 py-3.5 rounded-full shadow-gold">Choose your style</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MULTI-COUNTRY TOURS ============ -->
+<section id="multi" class="bg-sand py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <div class="max-w-xl mx-auto text-center mb-12 md:mb-14" data-reveal>
+      <p class="mono-tag text-[11px] text-teal uppercase mb-4">Multi-Country Tours</p>
+      <h2 class="font-display font-extrabold text-4xl md:text-5xl tracking-tightest text-ink mb-4">Not ready to pick just one country?</h2>
+      <p class="text-[15px] text-ink-light leading-relaxed">Check out our award-winning multi-country tours that check off some of Central Asia's biggest destinations in one trip.</p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-7">
+      <article class="card-tour group bg-cream rounded-3xl overflow-hidden shadow-soft" data-reveal>
+        <div class="relative h-52 overflow-hidden">
+          <img src="https://placehold.co/600x420/0D6E68/FBF3E1?text=Grand+Silk+Road" alt="Grand Silk Road" class="card-scene w-full h-full object-cover">
+        </div>
+        <div class="p-6 md:p-7">
+          <div class="flex items-center justify-between mono-tag text-[10.5px] uppercase text-ink/60 mb-3">
+            <span>5 countries · 28 days</span><span class="text-teal">Culture</span>
+          </div>
+          <h3 class="font-display font-bold text-xl text-ink mb-2">The Grand Silk Road</h3>
+          <p class="text-[14px] text-ink-light leading-relaxed mb-4">Almaty to Ashgabat — the full traverse across Kazakhstan, Kyrgyzstan, Uzbekistan, Tajikistan and Turkmenistan.</p>
+          <div class="flex items-center justify-between">
+            <span class="mono-tag text-[13px] text-ink">from $5,600<span class="text-ink/50"> pp</span></span>
+            <a href="#plan" class="link-underline text-[13px] font-semibold text-teal">Inquire →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card-tour group bg-cream rounded-3xl overflow-hidden shadow-soft" data-reveal="1">
+        <div class="relative h-52 overflow-hidden">
+          <img src="https://placehold.co/600x420/DB9430/2A1B12?text=Central+Asia+in+Depth" alt="Central Asia in Depth" class="card-scene w-full h-full object-cover">
+        </div>
+        <div class="p-6 md:p-7">
+          <div class="flex items-center justify-between mono-tag text-[10.5px] uppercase text-ink/60 mb-3">
+            <span>4 countries · 21 days</span><span class="text-rust">Multi-country</span>
+          </div>
+          <h3 class="font-display font-bold text-xl text-ink mb-2">Central Asia in Depth</h3>
+          <p class="text-[14px] text-ink-light leading-relaxed mb-4">Bazaars, mausoleums and mountain passes across Uzbekistan, Tajikistan, Kyrgyzstan and Kazakhstan.</p>
+          <div class="flex items-center justify-between">
+            <span class="mono-tag text-[13px] text-ink">from $4,300<span class="text-ink/50"> pp</span></span>
+            <a href="#plan" class="link-underline text-[13px] font-semibold text-teal">Inquire →</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="card-tour group bg-cream rounded-3xl overflow-hidden shadow-soft sm:col-span-2 lg:col-span-1" data-reveal="2">
+        <div class="relative h-52 overflow-hidden">
+          <img src="https://placehold.co/600x420/4FA69E/083836?text=Steppe+%26+Silk" alt="Steppe and Silk" class="card-scene w-full h-full object-cover">
+        </div>
+        <div class="p-6 md:p-7">
+          <div class="flex items-center justify-between mono-tag text-[10.5px] uppercase text-ink/60 mb-3">
+            <span>3 countries · 16 days</span><span class="text-teal">Culture</span>
+          </div>
+          <h3 class="font-display font-bold text-xl text-ink mb-2">Steppe &amp; Silk</h3>
+          <p class="text-[14px] text-ink-light leading-relaxed mb-4">Nomadic pastures in Kyrgyzstan, then the fabled cities of Uzbekistan and Turkmenistan.</p>
+          <div class="flex items-center justify-between">
+            <span class="mono-tag text-[13px] text-ink">from $3,750<span class="text-ink/50"> pp</span></span>
+            <a href="#plan" class="link-underline text-[13px] font-semibold text-teal">Inquire →</a>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="text-center mt-11">
+      <a href="#destinations" class="btn-primary inline-flex items-center gap-2 bg-ink text-cream font-semibold text-sm px-7 py-3.5 rounded-full shadow-soft">Where to next?</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOP DESTINATIONS ============ -->
+<section id="destinations" class="bg-cream py-20 md:py-28">
+  <div class="max-w-7xl mx-auto px-5 md:px-8">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-14">
+      <div class="max-w-xl" data-reveal>
+        <p class="mono-tag text-[11px] text-rust uppercase mb-4">Top Destinations</p>
+        <h2 class="font-display font-extrabold text-4xl md:text-5xl tracking-tightest text-ink">Adventure starts here</h2>
+      </div>
+      <div class="flex items-center gap-3 shrink-0" data-reveal="1">
+        <button id="destPrev" aria-label="Scroll destinations left" class="carousel-btn w-11 h-11 rounded-full border border-ink/20 flex items-center justify-center text-ink hover:bg-sand">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button id="destNext" aria-label="Scroll destinations right" class="carousel-btn w-11 h-11 rounded-full border border-ink/20 flex items-center justify-center text-ink hover:bg-sand">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="destTrack" class="flex gap-7 md:gap-9 overflow-x-auto no-scrollbar pb-2">
+      <a href="#sale" class="dest-tile snap-item shrink-0 w-40 md:w-48 text-center group" data-reveal>
+        <div class="rounded-full overflow-hidden shadow-soft mx-auto" style="width:100%; aspect-ratio:1/1;">
+          <img src="https://placehold.co/400x400/823419/FBF3E1?text=UZ" alt="Uzbekistan" class="dest-img w-full h-full object-cover">
+        </div>
+        <h3 class="font-display font-bold text-base text-ink mt-4">Uzbekistan</h3>
+        <p class="mono-tag text-[10px] uppercase text-ink/50 mt-1">Heritage</p>
+      </a>
+      <a href="#sale" class="dest-tile snap-item shrink-0 w-40 md:w-48 text-center group" data-reveal="1">
+        <div class="rounded-full overflow-hidden shadow-soft mx-auto" style="width:100%; aspect-ratio:1/1;">
+          <img src="https://placehold.co/400x400/0A4F4B/F1E4C8?text=KG" alt="Kyrgyzstan" class="dest-img w-full h-full object-cover">
+        </div>
+        <h3 class="font-display font-bold text-base text-ink mt-4">Kyrgyzstan</h3>
+        <p class="mono-tag text-[10px] uppercase text-ink/50 mt-1">Nomadic</p>
+      </a>
+      <a href="#sale" class="dest-tile snap-item shrink-0 w-40 md:w-48 text-center group" data-reveal="2">
+        <div class="rounded-full overflow-hidden shadow-soft mx-auto" style="width:100%; aspect-ratio:1/1;">
+          <img src="https://placehold.co/400x400/B5701E/2A1B12?text=TJ" alt="Tajikistan" class="dest-img w-full h-full object-cover">
+        </div>
+        <h3 class="font-display font-bold text-base text-ink mt-4">Tajikistan</h3>
+        <p class="mono-tag text-[10px] uppercase text-ink/50 mt-1">Expedition</p>
+      </a>
+      <a href="#sale" class="dest-tile snap-item shrink-0 w-40 md:w-48 text-center group" data-reveal="3">
+        <div class="rounded-full overflow-hidden shadow-soft mx-auto" style="width:100%; aspect-ratio:1/1;">
+          <img src="https://placehold.co/400x400/4A2E12/F0C169?text=TM" alt="Turkmenistan" class="dest-img w-full h-full object-cover">
+        </div>
+        <h3 class="font-display font-bold text-base text-ink mt-4">Turkmenistan</h3>
+        <p class="mono-tag text-[10px] uppercase text-ink/50 mt-1">Remote</p>
+      </a>
+      <a href="#sale" class="dest-tile snap-item shrink-0 w-40 md:w-48 text-center group" data-reveal="4">
+        <div class="rounded-full overflow-hidden shadow-soft mx-auto" style="width:100%; aspect-ratio:1/1;">
+          <img src="https://placehold.co/400x400/4FA69E/083836?text=KZ" alt="Kazakhstan" class="dest-img w-full h-full object-cover">
+        </div>
+        <h3 class="font-display font-bold text-base text-ink mt-4">Kazakhstan</h3>
+        <p class="mono-tag text-[10px] uppercase text-ink/50 mt-1">Steppe</p>
+      </a>
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="#multi" class="btn-primary inline-flex items-center gap-2 bg-rust text-cream font-semibold text-sm px-7 py-3.5 rounded-full shadow-gold">Explore trips</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONIALS ============ -->
+<section id="reviews" class="relative py-20 md:py-28" style="background: linear-gradient(180deg, #083836 0%, #0A4F4B 100%);">
+  <div class="absolute inset-0 star-field opacity-[0.08]"></div>
+  <div class="relative max-w-7xl mx-auto px-5 md:px-8">
+    <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-12 md:mb-14">
+      <div class="max-w-xl" data-reveal>
+        <p class="mono-tag text-[11px] text-gold-light uppercase mb-4">What Our Travellers Say</p>
+        <h2 class="font-display font-extrabold text-4xl md:text-5xl tracking-tightest text-cream mb-4">Postcards from past journeys</h2>
+        <p class="text-[15px] text-cream/75 leading-relaxed">With thousands of 5-star reviews and over a decade guiding the route, few know how to travel the Silk Road like we do.</p>
+      </div>
+      <div class="flex items-center gap-3 shrink-0" data-reveal="1">
+        <button id="revPrev" aria-label="Scroll reviews left" class="carousel-btn w-11 h-11 rounded-full border border-cream/25 flex items-center justify-center text-cream hover:bg-cream/10">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="15 18 9 12 15 6"/></svg>
+        </button>
+        <button id="revNext" aria-label="Scroll reviews right" class="carousel-btn w-11 h-11 rounded-full border border-cream/25 flex items-center justify-center text-cream hover:bg-cream/10">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><polyline points="9 18 15 12 9 6"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <div id="revTrack" class="flex gap-6 md:gap-7 overflow-x-auto no-scrollbar pb-2">
+      <figure class="stamp snap-item shrink-0 w-[85%] sm:w-[46%] lg:w-[31%] bg-cream p-7 md:p-8 rounded-2xl shadow-soft relative" data-reveal>
+        <div class="flex gap-0.5 mb-4" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#DB9430"><polygon points="12,2 15,9 22,9.5 16.5,14.5 18.5,22 12,17.5 5.5,22 7.5,14.5 2,9.5 9,9"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#DB9430"><polygon points="12,2 15,9 22,9.5 16.5,14.5 18.5,22 12,17.5 5.5,22 7.5,14.5 2,9.5 9,9"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#DB9430"><polygon points="12,2 15,9 22,9.5 16.5,14.5 18.5,22 12,17.5 5.5,22 7.5,14.5 2,9.5 9,9"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#DB9430"><polygon points="12,2 15,9 22,9.5 16.5,14.5 18.5,22 12,17.5 5.5,22 7.5,14.5 2,9.5 9,9"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#DB9430"><polygon points="12,2 15,9 22,9.5 16.5,14.5 18.5,22 12,17.5 5.5,22 7.5,14.5 2,9.5 9,9"/></svg>
+        </div>
+        <p class="font-display italic text-[16.5px] text-ink leading-relaxed mb-6">"Our guide in Bukhara knew which door to knock on to watch a suzani being embroidered. That's not in any guidebook."</p>
+        <figcaption class="mono-tag text-[11px] text-ink/60 uppercase">Helen R. · United Kingdom<br>Uzbekistan Adventure</figcaption>
+      </figure>
+      <figure class="stamp snap-item shrink-0 w-[85%] sm:w-[46%] lg:w-[31%] bg-cream p-7 md:p-8 rounded-2xl shadow-soft relative" data-reveal="1">
+        <div class="flex gap-0.5 mb-4" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#DB9430"><polygon points="12,2 15,9 22,9.5 16.5,14.5 18.5,22 12,17.5 5.5,22 7.5,14.5 2,9.5 9,9"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#DB9430"><polygon points="12,2 15,9 22,9.5 16.5,14.5 18.5,22 12,17.5 5.5,22 7.5,14.5 2,9.5 9,9"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#DB9430"><polygon points="12,2 15,9 22,9.5 16.5,14.5 18.5,22 12,17.5 5.5,22 7.5,14.5 2,9.5 9,9"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#DB9430"><polygon points="12,2 15,9 22,9.5 16.5,14.5 18.5,22 12,17.5 5.5,22 7.5,14.5 2,9.5 9,9"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#DB9430"><polygon points="12,2 15,9 22,9.5 16.5,14.5 18.5,22 12,17.5 5.5,22 7.5,14.5 2,9.5 9,9"/></svg>
+        </div>
+        <p class="font-display italic text-[16.5px] text-ink leading-relaxed mb-6">"Twelve days on the Pamir Highway and I didn't see another tour group once. Abask plans around real distances, not brochure ones."</p>
+        <figcaption class="mono-tag text-[11px] text-ink/60 uppercase">Marco T. · Italy<br>Tajikistan Intro</figcaption>
+      </figure>
+      <figure class="stamp snap-item shrink-0 w-[85%] sm:w-[46%] lg:w-[31%] bg-cream p-7 md:p-8 rounded-2xl shadow-soft relative" data-reveal="2">
+        <div class="flex gap-0.5 mb-4" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#DB9430"><polygon points="12,2 15,9 22,9.5 16.5,14.5 18.5,22 12,17.5 5.5,22 7.5,14.5 2,9.5 9,9"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#DB9430"><polygon points="12,2 15,9 22,9.5 16.5,14.5 18.5,22 12,17.5 5.5,22 7.5,14.5 2,9.5 9,9"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#DB9430"><polygon points="12,2 15,9 22,9.5 16.5,14.5 18.5,22 12,17.5 5.5,22 7.5,14.5 2,9.5 9,9"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#DB9430"><polygon points="12,2 15,9 22,9.5 16.5,14.5 18.5,22 12,17.5 5.5,22 7.5,14.5 2,9.5 9,9"/></svg>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="#DB9430"><polygon points="12,2 15,9 22,9.5 16.5,14.5 18.5,22 12,17.5 5.5,22 7.5,14.5 2,9.5 9,9"/></svg>
+        </div>
+        <p class="font-display italic text-[16.5px] text-ink leading-relaxed mb-6">"I expected a desert. I didn't expect to be crying at 2am watching a crater burn under more stars than I've ever seen."</p>
+        <figcaption class="mono-tag text-[11px] text-ink/60 uppercase">Priya N. · Canada<br>Turkmenistan Remote</figcaption>
+      </figure>
+    </div>
+
+    <div class="text-center mt-11">
+      <a href="#plan" class="btn-ghost inline-flex items-center gap-2 border border-cream/40 text-cream font-semibold text-sm px-7 py-3.5 rounded-full hover:bg-cream/10">Read more reviews</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BOOK WITH CONFIDENCE ============ -->
+<section class="bg-cream py-20 md:py-28">
+  <div class="max-w-6xl mx-auto px-5 md:px-8">
+    <h2 class="font-display font-extrabold text-4xl md:text-5xl tracking-tightest text-ink text-center mb-14 md:mb-16" data-reveal>Book with Confidence</h2>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 md:gap-8 text-center">
+      <div data-reveal>
+        <div class="w-14 h-14 rounded-full bg-teal/10 flex items-center justify-center mx-auto mb-5">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0D6E68" stroke-width="1.8"><path d="M9 3v4M15 3v4M3 9h18M5 6h14a2 2 0 012 2v11a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2z"/><path d="M8 14l3 3 5-6"/></svg>
+        </div>
+        <h3 class="font-display font-bold text-lg text-ink mb-2">Flexibility Guaranteed</h3>
+        <p class="text-[14px] text-ink-light leading-relaxed">Life happens. Switch your date or route up to 30 days out, no questions asked.</p>
+      </div>
+      <div data-reveal="1">
+        <div class="w-14 h-14 rounded-full bg-teal/10 flex items-center justify-center mx-auto mb-5">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0D6E68" stroke-width="1.8"><rect x="2" y="6" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+        </div>
+        <h3 class="font-display font-bold text-lg text-ink mb-2">Easy Payments</h3>
+        <p class="text-[14px] text-ink-light leading-relaxed">Secure your spot with a low deposit, then pay the rest in interest-free installments.</p>
+      </div>
+      <div data-reveal="2">
+        <div class="w-14 h-14 rounded-full bg-teal/10 flex items-center justify-center mx-auto mb-5">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0D6E68" stroke-width="1.8"><path d="M12 3l7 3v6c0 4.5-3 8-7 9-4-1-7-4.5-7-9V6l7-3z"/></svg>
+        </div>
+        <h3 class="font-display font-bold text-lg text-ink mb-2">Total Peace of Mind</h3>
+        <p class="text-[14px] text-ink-light leading-relaxed">A 24/7 local support line in every country, staffed by people who know the route.</p>
+      </div>
+      <div data-reveal="3">
+        <div class="w-14 h-14 rounded-full bg-teal/10 flex items-center justify-center mx-auto mb-5">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0D6E68" stroke-width="1.8"><polygon points="12,2 15,9 22,9.5 16.5,14.5 18.5,22 12,17.5 5.5,22 7.5,14.5 2,9.5 9,9"/></svg>
+        </div>
+        <h3 class="font-display font-bold text-lg text-ink mb-2">10,000+ 5-Star Reviews</h3>
+        <p class="text-[14px] text-ink-light leading-relaxed">Real travellers, real routes — see why thousands keep coming back to Abask.</p>
+      </div>
+    </div>
+
+    <div class="text-center mt-12">
+      <a href="#reviews" class="link-underline font-semibold text-teal text-[14px]">Learn more →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY TRAVEL WITH ABASK ============ -->
+<section class="bg-sand py-20 md:py-28">
+  <div class="max-w-6xl mx-auto px-5 md:px-8 grid md:grid-cols-2 gap-12 md:gap-16 items-center">
+    <div class="order-2 md:order-1" data-reveal>
+      <p class="mono-tag text-[11px] text-rust uppercase mb-4">Why Travel With Abask</p>
+      <h2 class="font-display font-extrabold text-4xl md:text-[2.6rem] tracking-tightest text-ink mb-6">We don't run tours. We open doors.</h2>
+      <ul class="space-y-4">
+        <li class="check-bullet flex items-start gap-3">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D6E68" stroke-width="2.2" class="mt-0.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+          <span class="text-[15px] text-ink-light leading-relaxed">Small groups, capped at 12 travellers per departure.</span>
+        </li>
+        <li class="check-bullet flex items-start gap-3">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D6E68" stroke-width="2.2" class="mt-0.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+          <span class="text-[15px] text-ink-light leading-relaxed">Guides are never subcontracted — every leader works for Abask, year-round.</span>
+        </li>
+        <li class="check-bullet flex items-start gap-3">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D6E68" stroke-width="2.2" class="mt-0.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+          <span class="text-[15px] text-ink-light leading-relaxed">Home-hosted dinners with real Silk Road families, not staged "cultural shows."</span>
+        </li>
+        <li class="check-bullet flex items-start gap-3">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#0D6E68" stroke-width="2.2" class="mt-0.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-6"/></svg>
+          <span class="text-[15px] text-ink-light leading-relaxed">24/7 on-the-ground support from our Samarkand office.</span>
+        </li>
+      </ul>
+    </div>
+    <div class="order-1 md:order-2 relative rounded-3xl overflow-hidden shadow-lift" data-reveal="1" style="aspect-ratio:4/3;">
+      <img src="https://placehold.co/800x600/0A4F4B/F1E4C8?text=Home-hosted+dinner" alt="Home-hosted dinner with a Silk Road family" class="w-full h-full object-cover">
+    </div>
+  </div>
+</section>
+
+<!-- ============ INCLUSIONS ============ -->
+<section class="bg-cream py-20 md:py-28">
+  <div class="max-w-6xl mx-auto px-5 md:px-8">
+    <div class="max-w-xl mb-12 md:mb-14" data-reveal>
+      <p class="mono-tag text-[11px] text-teal uppercase mb-4">Inclusions, Actually Included</p>
+      <h2 class="font-display font-extrabold text-4xl md:text-5xl tracking-tightest text-ink">No nickel-and-diming</h2>
+      <p class="mt-5 text-[15px] text-ink-light leading-relaxed">Unlike other operators who charge extra for every excursion, our fare includes all accommodation, most meals, all group transport, and a local expert leader — start to finish.</p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5">
+      <div class="relative rounded-2xl overflow-hidden shadow-soft col-span-2 row-span-2" style="aspect-ratio:1/1;" data-reveal>
+        <img src="https://placehold.co/800x800/823419/FBF3E1?text=Meet+the+crew" alt="Meet the Abask crew" class="w-full h-full object-cover">
+        <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(42,27,18,0) 55%, rgba(42,27,18,.7) 100%);"></div>
+        <div class="absolute bottom-5 left-5 flex items-center gap-2">
+          <span class="w-9 h-9 rounded-full bg-cream/90 flex items-center justify-center"><svg width="11" height="11" viewBox="0 0 24 24" fill="#2A1B12"><polygon points="6,4 20,12 6,20"/></svg></span>
+          <span class="text-cream font-semibold text-[13px]">Meet the crew</span>
+        </div>
+      </div>
+      <div class="relative rounded-2xl overflow-hidden shadow-soft" style="aspect-ratio:1/1;" data-reveal="1">
+        <img src="https://placehold.co/400x400/0A4F4B/F1E4C8?text=Stays" alt="Where you'll stay">
+      </div>
+      <div class="relative rounded-2xl overflow-hidden shadow-soft" style="aspect-ratio:1/1;" data-reveal="2">
+        <img src="https://placehold.co/400x400/DB9430/2A1B12?text=Meals" alt="Meals included">
+      </div>
+      <div class="relative rounded-2xl overflow-hidden shadow-soft" style="aspect-ratio:1/1;" data-reveal="3">
+        <img src="https://placehold.co/400x400/4FA69E/083836?text=Transport" alt="Group transport">
+      </div>
+      <div class="relative rounded-2xl overflow-hidden shadow-soft" style="aspect-ratio:1/1;" data-reveal="4">
+        <img src="https://placehold.co/400x400/B5701E/2A1B12?text=Leader" alt="Local expert leader">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CREW & SUPPORT ============ -->
+<section class="relative overflow-hidden" style="background: linear-gradient(135deg, #4FA69E 0%, #0D6E68 55%, #083836 100%);">
+  <div class="absolute inset-0 star-field opacity-20"></div>
+  <div class="relative max-w-5xl mx-auto px-5 md:px-8 py-20 md:py-24 grid md:grid-cols-[auto_1fr] gap-8 md:gap-12 items-center">
+    <img src="https://placehold.co/240x240/FBF3E1/2A1B12?text=Crew" alt="Abask crew leader" class="w-28 h-28 md:w-36 md:h-36 rounded-full mx-auto shadow-lift" data-reveal>
+    <div class="text-center md:text-left" data-reveal="1">
+      <p class="mono-tag text-[11px] text-cream/80 uppercase mb-3">Awesome Crew &amp; Support</p>
+      <p class="font-display italic text-2xl md:text-3xl leading-snug text-cream">"Our tour leaders live along the route we travel — every question gets answered by someone who's actually stood where you're standing."</p>
+      <p class="mono-tag text-[11px] text-cream/70 uppercase mt-5">Dilnoza A. · Head Guide, Samarkand</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PLAN / INQUIRY ============ -->
+<section id="plan" class="relative overflow-hidden" style="background: radial-gradient(ellipse 100% 100% at 50% 0%, #F0C169 0%, #DB9430 45%, #B5701E 100%);">
+  <div class="absolute inset-0 star-field-dark opacity-40"></div>
+  <div class="relative max-w-3xl mx-auto px-5 md:px-8 py-24 md:py-28 text-center">
+    <p class="mono-tag text-[11px] text-ink/70 uppercase mb-4" data-reveal>Start Planning</p>
+    <h2 class="font-display font-extrabold text-4xl md:text-5xl tracking-tightest text-ink mb-5" data-reveal="1">Tell us where, we'll work out how.</h2>
+    <p class="max-w-md mx-auto text-[15px] text-ink/80 leading-relaxed mb-12" data-reveal="2">
+      Most journeys are custom-built. Send a few details and our Samarkand office will reply within one business day with a first-draft itinerary.
+    </p>
+
+    <form id="inquiryForm" class="bg-cream rounded-3xl shadow-lift p-7 md:p-10 text-left grid sm:grid-cols-2 gap-5" data-reveal="3">
+      <div class="sm:col-span-1">
+        <label for="name" class="block mono-tag text-[10.5px] uppercase text-ink/60 mb-2">Name</label>
+        <input id="name" name="name" type="text" required class="w-full bg-sand/60 border border-ink/10 rounded-xl px-4 py-3 text-[14.5px] text-ink focus:border-teal transition-colors" placeholder="Your full name">
+      </div>
+      <div class="sm:col-span-1">
+        <label for="email" class="block mono-tag text-[10.5px] uppercase text-ink/60 mb-2">Email</label>
+        <input id="email" name="email" type="email" required class="w-full bg-sand/60 border border-ink/10 rounded-xl px-4 py-3 text-[14.5px] text-ink focus:border-teal transition-colors" placeholder="you@email.com">
+      </div>
+      <div class="sm:col-span-1">
+        <label for="routeSelect" class="block mono-tag text-[10.5px] uppercase text-ink/60 mb-2">Route</label>
+        <select id="routeSelect" name="route" class="w-full bg-sand/60 border border-ink/10 rounded-xl px-4 py-3 text-[14.5px] text-ink focus:border-teal transition-colors">
+          <option>Uzbekistan Adventure</option>
+          <option>Kyrgyzstan Intro</option>
+          <option>Tajikistan Intro</option>
+          <option>The Grand Silk Road</option>
+          <option>Not sure yet</option>
+        </select>
+      </div>
+      <div class="sm:col-span-1">
+        <label for="month" class="block mono-tag text-[10.5px] uppercase text-ink/60 mb-2">Preferred Month</label>
+        <input id="month" name="month" type="text" class="w-full bg-sand/60 border border-ink/10 rounded-xl px-4 py-3 text-[14.5px] text-ink focus:border-teal transition-colors" placeholder="e.g. September 2026">
+      </div>
+      <div class="sm:col-span-2">
+        <label for="message" class="block mono-tag text-[10.5px] uppercase text-ink/60 mb-2">Message</label>
+        <textarea id="message" name="message" rows="3" class="w-full bg-sand/60 border border-ink/10 rounded-xl px-4 py-3 text-[14.5px] text-ink focus:border-teal transition-colors" placeholder="Group size, interests, anything else we should know"></textarea>
+      </div>
+      <div class="sm:col-span-2 flex items-center justify-between flex-wrap gap-4 mt-1">
+        <p class="text-[12.5px] text-ink/60">hello@abasktravel.com · +998 66 123 4567</p>
+        <button type="submit" class="btn-primary bg-ink text-cream font-semibold text-sm px-7 py-3.5 rounded-full shadow-soft">Send Inquiry</button>
+      </div>
+      <p id="formSuccess" class="sm:col-span-2 hidden text-[13.5px] text-teal font-semibold">Thank you — we'll reply within one business day with a first-draft itinerary.</p>
+    </form>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer class="bg-ink text-cream/85 relative">
+  <div class="absolute inset-0 star-field opacity-[0.06]"></div>
+  <div class="relative max-w-7xl mx-auto px-5 md:px-8 py-16 md:py-20 grid sm:grid-cols-2 md:grid-cols-4 gap-12">
+    <div>
+      <a href="#top" class="flex items-center gap-3 mb-4">
+        <img src="brand_assets/image_2026-07-01_17-15-48.png" alt="Abask Travel" class="w-10 h-10 rounded-full">
+        <span class="font-display font-bold text-base text-cream">Abask Travel</span>
+      </a>
+      <p class="text-[13.5px] leading-relaxed text-cream/60">Silk Road tours across five Central Asian countries, guided by the people who live along the route.</p>
+    </div>
+    <div>
+      <p class="mono-tag text-[10.5px] uppercase text-cream/45 mb-4">Journeys</p>
+      <ul class="space-y-2.5 text-[13.5px]">
+        <li><a href="#sale" class="link-underline">Uzbekistan Adventure</a></li>
+        <li><a href="#sale" class="link-underline">Kyrgyzstan Intro</a></li>
+        <li><a href="#sale" class="link-underline">Tajikistan Intro</a></li>
+        <li><a href="#multi" class="link-underline">The Grand Silk Road</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="mono-tag text-[10.5px] uppercase text-cream/45 mb-4">Company</p>
+      <ul class="space-y-2.5 text-[13.5px]">
+        <li><a href="#styles" class="link-underline">Trip Styles</a></li>
+        <li><a href="#destinations" class="link-underline">Destinations</a></li>
+        <li><a href="#reviews" class="link-underline">Reviews</a></li>
+        <li><a href="#plan" class="link-underline">Plan a Trip</a></li>
+      </ul>
+    </div>
+    <div>
+      <p class="mono-tag text-[10.5px] uppercase text-cream/45 mb-4">Contact</p>
+      <ul class="space-y-2.5 text-[13.5px] text-cream/70">
+        <li>hello@abasktravel.com</li>
+        <li>+998 66 123 4567</li>
+        <li>12 Registan Street<br>Samarkand, Uzbekistan</li>
+      </ul>
+    </div>
+  </div>
+  <div class="relative max-w-7xl mx-auto px-5 md:px-8 pb-10 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-cream/10 pt-8">
+    <p class="text-[12px] text-cream/45">© 2026 Abask Travel. All journeys custom-guided across Uzbekistan, Kazakhstan, Kyrgyzstan, Tajikistan and Turkmenistan.</p>
+    <div class="flex items-center gap-5 text-cream/60">
+      <a href="#" aria-label="Instagram" class="hover:text-gold transition-colors"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+      <a href="#" aria-label="Facebook" class="hover:text-gold transition-colors"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 3h-2a5 5 0 00-5 5v2H6v4h2v7h4v-7h3l1-4h-4V8a1 1 0 011-1h3z"/></svg></a>
+      <a href="#" aria-label="WhatsApp" class="hover:text-gold transition-colors"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 21l1.5-4.5A8 8 0 113 21z"/></svg></a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Promo bar dismiss
+  const promoBar = document.getElementById('promoBar');
+  document.getElementById('promoClose').addEventListener('click', () => promoBar.remove());
+
+  // Nav scroll shadow state
+  const nav = document.getElementById('siteNav');
+  const onScroll = () => {
+    if (window.scrollY > 20) nav.classList.add('py-3'); else nav.classList.remove('py-3');
+  };
+  document.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    const isHidden = mobileMenu.classList.contains('hidden');
+    mobileMenu.classList.toggle('hidden');
+    mobileMenu.classList.toggle('flex');
+    menuBtn.setAttribute('aria-expanded', String(isHidden));
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.add('hidden');
+    mobileMenu.classList.remove('flex');
+    menuBtn.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Search panel toggle
+  const searchBtn = document.getElementById('searchBtn');
+  const searchPanel = document.getElementById('searchPanel');
+  searchBtn.addEventListener('click', () => {
+    const willOpen = searchPanel.classList.contains('hidden-panel');
+    searchPanel.classList.toggle('hidden-panel');
+    searchBtn.setAttribute('aria-expanded', String(willOpen));
+    if (willOpen) searchPanel.querySelector('input').focus();
+  });
+
+  // Wishlist toggle (header + per-card)
+  const wishlistBtn = document.getElementById('wishlistBtn');
+  const wishlistCount = document.getElementById('wishlistCount');
+  let saved = 0;
+  function updateWishlistBadge() {
+    if (saved > 0) {
+      wishlistCount.textContent = saved;
+      wishlistCount.classList.remove('hidden');
+      wishlistCount.classList.add('flex');
+    } else {
+      wishlistCount.classList.add('hidden');
+      wishlistCount.classList.remove('flex');
+    }
+  }
+  document.querySelectorAll('.fav-btn').forEach(btn => {
+    if (btn === wishlistBtn) return;
+    btn.addEventListener('click', () => {
+      const pressed = btn.getAttribute('aria-pressed') === 'true';
+      btn.setAttribute('aria-pressed', String(!pressed));
+      saved += pressed ? -1 : 1;
+      updateWishlistBadge();
+    });
+  });
+  wishlistBtn.addEventListener('click', () => {
+    document.getElementById('reviews').scrollIntoView({ behavior: 'smooth' });
+  });
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('[data-reveal]');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in-view');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -8% 0px' });
+  revealEls.forEach(el => io.observe(el));
+
+  // Countdown timers
+  const saleEnd = new Date(Date.now() + 5 * 24 * 60 * 60 * 1000 + 3 * 60 * 60 * 1000);
+  function pad(n) { return String(n).padStart(2, '0'); }
+  function updateCountdowns() {
+    const diff = Math.max(0, saleEnd.getTime() - Date.now());
+    const days = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const minutes = Math.floor((diff % 3600000) / 60000);
+    const seconds = Math.floor((diff % 60000) / 1000);
+    document.querySelectorAll('[data-unit="days"]').forEach(el => el.textContent = pad(days));
+    document.querySelectorAll('[data-unit="hours"]').forEach(el => el.textContent = pad(hours));
+    document.querySelectorAll('[data-unit="minutes"]').forEach(el => el.textContent = pad(minutes));
+    document.querySelectorAll('[data-unit="seconds"]').forEach(el => el.textContent = pad(seconds));
+  }
+  updateCountdowns();
+  setInterval(updateCountdowns, 1000);
+
+  // Horizontal carousels
+  function wireCarousel(trackId, prevId, nextId) {
+    const track = document.getElementById(trackId);
+    const prev = document.getElementById(prevId);
+    const next = document.getElementById(nextId);
+    const scrollAmount = () => track.clientWidth * 0.7;
+    prev.addEventListener('click', () => track.scrollBy({ left: -scrollAmount(), behavior: 'smooth' }));
+    next.addEventListener('click', () => track.scrollBy({ left: scrollAmount(), behavior: 'smooth' }));
+  }
+  wireCarousel('destTrack', 'destPrev', 'destNext');
+  wireCarousel('revTrack', 'revPrev', 'revNext');
+
+  // Inquiry form (static demo — no backend)
+  const form = document.getElementById('inquiryForm');
+  const success = document.getElementById('formSuccess');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    form.querySelectorAll('input, select, textarea, button').forEach(el => el.disabled = true);
+    success.classList.remove('hidden');
+  });
+</script>
+
+</body>
+</html>
